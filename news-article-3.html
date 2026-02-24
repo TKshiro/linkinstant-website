@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kintoneへの自動出力API連携機能を提供開始 | LinkInstant News</title>
+    <meta name="description" content="Kintoneへの自動出力API連携機能を提供開始">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F52BA',    /* Sapphire Blue for corporate trust */
+                        secondary: '#F8FAFC',  /* Light gray background */
+                        textMain: '#1F2937',   /* Dark gray text */
+                        textLight: '#6B7280',  /* Light gray text */
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #1F2937;
+            background-color: #F8FAFC;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #0F52BA 0%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Typography for Article */
+        .prose h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #111827;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            border-left: 4px solid #0F52BA;
+            padding-left: 1rem;
+            line-height: 1.3;
+        }
+
+        .prose h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1F2937;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .prose p {
+            color: #374151;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .prose img {
+            border-radius: 1rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .prose blockquote {
+            border-left: 4px solid #E5E7EB;
+            padding-left: 1.5rem;
+            font-style: italic;
+            color: #6B7280;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            background-color: #F3F4F6;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+
+        /* Modal Animation */
+        .modal-enter {
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+        }
+
+        .modal-enter-active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 w-full bg-white shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                
+                <img src="logo.png" alt="LinkInstant" class="h-8 w-auto"> <span class="text-xl font-black tracking-tight text-gray-900">LinkInstant</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-700">
+                <a href="index.html" class="hover:text-primary transition-colors text-primary font-bold">ホーム</a>
+                <a href="index.html#features" class="hover:text-primary transition-colors">機能・特徴</a>
+                <a href="index.html#pricing" class="hover:text-primary transition-colors">料金</a>
+                <a href="news.html" class="hover:text-primary transition-colors">ブログ</a>
+                <a href="news.html" class="hover:text-primary transition-colors">お知らせ</a>
+                <a href="faq.html" class="hover:text-primary transition-colors">よくある質問</a>
+                <a href="company.html" class="hover:text-primary transition-colors">会社概要</a>
+            </nav>
+            <div class="hidden md:flex gap-4">
+                <a href="contact.html"
+                    class="text-gray-700 border border-gray-300 hover:bg-gray-50 px-5 py-2.5 rounded-full text-sm font-bold transition-colors">
+                    お問い合わせ
+                </a>
+                <a href="index.html#download"
+                    class="bg-primary text-white hover:bg-blue-800 px-5 py-2.5 rounded-full text-sm font-bold shadow-md transition-all">
+                    無料で試す
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Header -->
+    <div class="pt-32 pb-12 bg-white border-b border-gray-200">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <a href="news.html"
+                class="inline-flex items-center gap-2 text-primary font-bold hover:text-blue-800 transition-colors mb-8">
+                <i class="ph-bold ph-arrow-left"></i> お知らせ一覧に戻る
+            </a>
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-bold border border-blue-100">アップデート</span>
+                <span class="text-sm font-bold text-gray-500 flex items-center gap-1"><i class="ph-bold ph-calendar-blank"></i> 2026.02.18</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-black leading-tight text-gray-900 mb-8">Kintoneへの自動出力API連携機能を提供開始</h1>
+
+            <div class="flex items-center justify-between border-t border-gray-100 pt-6">
+                <div class="flex items-center gap-3">
+                    <img src="https://ui-avatars.com/api/?name=Link+Instant&background=0F52BA&color=fff" alt="Author"
+                        class="w-10 h-10 rounded-full">
+                    <div>
+                        <p class="text-sm font-bold text-gray-900">LinkInstant 編集部</p>
+                        <p class="text-xs text-gray-500">営業DX・マーケティング担当</p>
+                    </div>
+                </div>
+                <!-- SNS Share -->
+                <div class="flex gap-2">
+                    <button
+                        class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-100 hover:text-blue-500 transition-colors"><i
+                            class="ph-fill ph-twitter-logo"></i></button>
+                    <button
+                        class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-800 hover:text-white transition-colors"><i
+                            class="ph-fill ph-facebook-logo"></i></button>
+                    <button
+                        class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-colors"><i
+                            class="ph-bold ph-link"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Content -->
+    <main class="flex-grow py-12 px-4 sm:px-6 max-w-3xl mx-auto w-full prose">
+
+<p class="text-xl text-gray-600 font-bold mb-10 leading-relaxed">
+    名刺のスキャンデータを直接Kintoneへ送信するAPI連携機能をご利用いただけるようになりました。
+</p>
+<h2>シームレスなCRM統合</h2>
+<p>設定画面からAPIトークンを入力するだけで、スキャンと同時に顧客情報がKintoneアプリに登録されます。入力漏れを完全にゼロにし、チーム全体の情報共有を加速させます。</p>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-gray-800 pb-12 mb-8">
+            <div class="col-span-1 md:col-span-2">
+                <a href="index.html" class="flex items-center gap-2 mb-4">
+                    <i class="ph-fill ph-infinity text-blue-400 text-3xl"></i>
+                    <span class="text-2xl font-black tracking-tight text-white">LinkInstant<span
+                            class="text-blue-400">.</span></span>
+                </a>
+                <p class="text-sm text-gray-400 mb-6 leading-relaxed max-w-sm">
+                    LinkInstantは、最新のAI搭載OCRとクラウドを活用した、次世代のAI名刺管理・営業支援アプリです。企業の顧客管理(CRM)をシームレスに連携させます。
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors bg-gray-800 p-2 rounded-full"><i
+                            class="ph-fill ph-twitter-logo text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors bg-gray-800 p-2 rounded-full"><i
+                            class="ph-fill ph-facebook-logo text-xl"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">プロダクト</h4>
+                <ul class="space-y-3 text-sm font-medium">
+                    <li><a href="index.html#features" class="hover:text-blue-400 transition-colors">AI名刺管理の機能</a></li>
+                    <li><a href="index.html#pricing" class="hover:text-blue-400 transition-colors">料金プラン</a></li>
+                    <li><a href="faq.html" class="hover:text-blue-400 transition-colors">よくある質問 (FAQ)</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">企業・サポート</h4>
+                <ul class="space-y-3 text-sm font-medium">
+                    <li><a href="news.html" class="hover:text-blue-400 transition-colors">ブログ</a></li>
+                    <li><a href="news.html" class="hover:text-blue-400 transition-colors">お知らせ (News)</a></li>
+                    <li><a href="company.html" class="hover:text-blue-400 transition-colors">会社概要</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-400 transition-colors">お問い合わせ・法人導入</a></li>
+                    <li><a href="terms.html" class="hover:text-blue-400 transition-colors">利用規約</a></li>
+                    <li><a href="privacy.html" class="hover:text-blue-400 transition-colors">プライバシーポリシー</a></li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center text-xs font-medium text-gray-500">
+            <p>© 2026 LinkInstant. All rights reserved.</p>
+            <p class="mt-2 md:mt-0">Made for Japanese Business Professionals.</p>
+        </div>
+    </footer>
+
+
+    <!-- Conversion Popup Overlay (Hidden initially) -->
+    <div id="conversion-modal"
+        class="fixed inset-0 z-[100] flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity" id="modal-backdrop"></div>
+
+        <!-- Modal Content -->
+        <div id="modal-content"
+            class="bg-white rounded-3xl shadow-2xl w-[90%] max-w-md relative overflow-hidden pointer-events-auto transform scale-95 transition-transform duration-300">
+            <!-- Close Button -->
+            <button id="close-modal"
+                class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-900 transition-colors z-10">
+                <i class="ph-bold ph-x"></i>
+            </button>
+
+            <div class="bg-gradient-to-r from-primary to-blue-400 h-32 relative">
+                <div
+                    class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-lg border-4 border-white rotate-3">
+                    <i class="ph-fill ph-gift text-primary text-4xl mt-1"></i>
+                </div>
+            </div>
+
+            <div class="pt-16 pb-8 px-6 text-center">
+                <div
+                    class="inline-block bg-yellow-100 text-yellow-800 text-xs font-black px-3 py-1 rounded-full mb-4 border border-yellow-200">
+                    シークレットキャンペーン開催中！
+                </div>
+                <h3 class="text-2xl font-black text-gray-900 mb-2 leading-tight">この記事を読んだ方限定<br>プレミアムプラン 1ヶ月無料！</h3>
+                <p class="text-sm font-medium text-gray-600 mb-6 leading-relaxed">
+                    AIによるお礼メール自動作成機能や無制限スキャンを、今なら丸々1ヶ月無料でお試しいただけます。
+                </p>
+
+                <a href="index.html#download"
+                    class="block w-full bg-black hover:bg-gray-800 py-3.5 rounded-xl text-white font-bold transition-colors shadow-lg shadow-gray-300 mb-3 flex items-center justify-center gap-2">
+                    特典を受け取ってDLする
+                </a>
+
+                <a href="contact.html"
+                    class="block w-full bg-white border border-gray-200 hover:bg-gray-50 py-3.5 rounded-xl text-gray-700 font-bold transition-colors text-sm">
+                    まずは法人資料をダウンロード
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to trigger modal after 60 seconds -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('conversion-modal');
+            const backdrop = document.getElementById('modal-backdrop');
+            const content = document.getElementById('modal-content');
+            const closeBtn = document.getElementById('close-modal');
+            let _modalTriggered = false;
+
+            const showModal = () => {
+                if (_modalTriggered) return;
+                _modalTriggered = true;
+
+                // Show modal UI
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.classList.add('opacity-100');
+
+                // Add pop scale effect
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            };
+
+            const hideModal = () => {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modal.classList.remove('opacity-100');
+
+                content.classList.add('scale-95');
+                content.classList.remove('scale-100');
+            };
+
+            closeBtn.addEventListener('click', hideModal);
+            backdrop.addEventListener('click', hideModal);
+
+            // Trigger after 1 minute (60,000 ms)
+            // For testing convenience, let's keep it at 60 seconds as requested.
+            setTimeout(() => {
+                showModal();
+            }, 60000);
+        });
+    </script>
+</body>
+
+</html>

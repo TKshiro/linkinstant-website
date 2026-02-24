@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Optimization -->
+    <title>AI名刺管理アプリ LinkInstant | 10秒でデータ化・次世代の営業支援ツール</title>
+    <meta name="description"
+        content="AI名刺アプリ「LinkInstant」は、撮影からわずか10秒で名刺データを高精度にデジタル化。Kintone連携やチーム共有、AIによる自動お礼メール作成など、法人の営業支援・顧客管理を劇的に効率化します。">
+    <meta name="keywords" content="AI 名刺, 名刺管理, 名刺アプリ, 営業支援, OCR, Kintone連携, 顧客管理, デジタル名刺, LinkInstant">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F52BA',    /* Sapphire Blue for corporate trust */
+                        secondary: '#F8FAFC',  /* Light gray background */
+                        textMain: '#1F2937',   /* Dark gray text */
+                        textLight: '#6B7280',  /* Light gray text */
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #1F2937;
+            background-color: #FFFFFF;
+        }
+
+        .section-bg {
+            background-color: #F8FAFC;
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #0F52BA 0%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 w-full bg-white shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                
+                <img src="logo.png" alt="LinkInstant" class="h-8 w-auto"> <span class="text-xl font-black tracking-tight text-gray-900">LinkInstant</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-700">
+                <a href="index.html" class="hover:text-primary transition-colors text-primary font-bold">ホーム</a>
+                <a href="#features" class="hover:text-primary transition-colors">機能・特徴</a>
+                <a href="#pricing" class="hover:text-primary transition-colors">料金</a>
+                <a href="blog.html" class="hover:text-primary transition-colors">ブログ</a>
+                <a href="news.html" class="hover:text-primary transition-colors">お知らせ</a>
+                <a href="faq.html" class="hover:text-primary transition-colors">よくある質問</a>
+                <a href="company.html" class="hover:text-primary transition-colors">会社概要</a>
+            </nav>
+            <div class="hidden md:flex gap-4">
+                <a href="contact.html"
+                    class="text-gray-700 border border-gray-300 hover:bg-gray-50 px-5 py-2.5 rounded-full text-sm font-bold transition-colors">
+                    お問い合わせ
+                </a>
+                <a href="#download"
+                    class="bg-primary text-white hover:bg-blue-800 px-5 py-2.5 rounded-full text-sm font-bold shadow-md transition-all">
+                    無料で試す
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+        class="pt-32 pb-20 lg:pt-40 lg:pb-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2 text-center lg:text-left">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-primary text-xs font-bold mb-6 border border-blue-100">
+                <span class="flex h-2 w-2 relative">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                法人向け AI名刺管理 アプリ登場
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
+                名刺交換から<span class="gradient-text">10秒</span>で<br>次の商談をロックする。
+            </h1>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed font-medium">
+                最新のAIとOCR技術を搭載した次世代のAI名刺アプリ。<br class="hidden md:block">
+                高精度なデータ化、Geminiによる自動敬語メール、<br class="hidden md:block">
+                そしてKintoneへのシームレスなチーム共有をこれ一つで。
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4" id="download">
+                <button
+                    class="w-full sm:w-auto bg-black hover:bg-gray-800 text-white font-bold py-3.5 px-8 rounded-xl transition-all flex items-center justify-center gap-3 text-base shadow-lg hover:shadow-xl">
+                    <i class="ph-fill ph-apple-logo text-2xl"></i>
+                    App Store
+                </button>
+                <button
+                    class="w-full sm:w-auto bg-black hover:bg-gray-800 text-white font-bold py-3.5 px-8 rounded-xl transition-all flex items-center justify-center gap-3 text-base shadow-lg hover:shadow-xl">
+                    <i class="ph-fill ph-google-play-logo text-2xl"></i>
+                    Google Play
+                </button>
+            </div>
+            <p class="text-xs text-gray-500 mt-4 font-medium">※ 個人利用は月30枚まで完全無料。クレジットカード登録不要。</p>
+        </div>
+        <div class="lg:w-1/2 w-full relative">
+            <!-- Professional Mockup specific to Camcard-like corporate style -->
+            <div
+                class="relative bg-white rounded-3xl p-2 shadow-2xl border border-gray-100 z-10 w-full aspect-[4/3] flex items-center justify-center overflow-hidden bg-gray-50">
+                <div class="absolute inset-0 bg-blue-50/50"></div>
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop"
+                    alt="AI 名刺管理アプリ"
+                    class="w-full h-full object-cover rounded-2xl mix-blend-multiply opacity-90 shadow-inner">
+                <div class="absolute inset-0 flex items-center justify-center flex-col gap-4">
+                    <div
+                        class="w-20 h-20 bg-white rounded-full shadow-2xl flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+                        <i class="ph-fill ph-play text-primary text-3xl ml-1"></i>
+                    </div>
+                    <span
+                        class="bg-white/90 backdrop-blur text-gray-800 text-sm font-bold px-4 py-1.5 rounded-full shadow-lg">サービスの動画を見る
+                        (1分)</span>
+                </div>
+            </div>
+            <!-- Decorative background blob -->
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-100/50 rounded-full blur-3xl z-0">
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="border-y border-gray-100 bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm font-bold text-gray-400 mb-8 tracking-widest uppercase">営業チームの生産性を向上させる導入企業</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale">
+                <!-- Placeholders for company logos -->
+                <div class="text-xl font-black text-gray-800 tracking-tighter">CORP INC.</div>
+                <div class="text-xl font-black text-gray-800 tracking-tighter">TECH VISION</div>
+                <div class="text-xl font-black text-gray-800 tracking-tighter">GLOBAL SYS</div>
+                <div class="text-xl font-black text-gray-800 tracking-tighter">INNOVATIVE</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain points -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black mb-4">企業が抱える「名刺管理」の課題</h2>
+                <p class="text-gray-600 font-medium">交換した名刺が机の引き出しに眠っていませんか？</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover-lift">
+                    <i class="ph-fill ph-warning-circle text-4xl text-orange-500 mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">入力が面倒で放置</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">展示会や訪問で大量の名刺をもらっても、手入力の手間からデータ化されず、フォローアップが遅れる。</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover-lift">
+                    <i class="ph-fill ph-users-three text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">情報がチームで共有されない</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">担当者しか顧客情報を持っておらず、社内でのアプローチ重複や、退職時の引き継ぎ漏れが発生する。</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover-lift">
+                    <i class="ph-fill ph-calendar-x text-4xl text-red-500 mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">お礼メールの書き忘れ</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">帰社後にメールを送ろうと思っても、他の業務に追われて連絡が翌日以降になり、熱量が下がる。</p>
+                </div>
+            </div>
+            <div class="mt-16 text-center">
+                <div
+                    class="inline-block bg-primary text-white text-xl font-black px-8 py-4 rounded-full shadow-xl transform hover:scale-105 transition-transform">
+                    👇<br>その課題、AI名刺アプリ <span class="text-blue-200">LinkInstant</span> がすべて解決します
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-20">
+                <p class="text-primary font-bold tracking-widest text-sm mb-2">CORE FEATURES</p>
+                <h2 class="text-3xl md:text-4xl font-black">AIとクラウドが実現する次世代の営業支援</h2>
+            </div>
+
+            <!-- Feature 1 -->
+            <div class="flex flex-col md:flex-row items-center gap-12 mb-24">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=2070&auto=format&fit=crop"
+                        alt="ハイブリッドOCR" class="rounded-2xl shadow-xl w-full object-cover aspect-video">
+                </div>
+                <div class="md:w-1/2">
+                    <div
+                        class="w-12 h-12 bg-blue-100 text-primary rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="ph-fill ph-scan"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4">業界最高水準のハイブリッドOCR</h3>
+                    <h4 class="text-lg font-bold text-gray-700 mb-4">ML Kit × Gemini 1.5 Proによる高精度なAI名刺認識</h4>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        オンデバイスで即時抽出するML
+                        Kitと、表記ゆれや複雑なレイアウトも解析するGeminiのハイブリッド設計。「前株・後株」の分離や、両面名刺の統合解析まで自動で行います。展示会でのオフライン一括スキャンにも完全対応しています。
+                    </p>
+                    <ul class="space-y-2 font-medium text-sm text-gray-700">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i>
+                            わずか1秒の超高速スキャン</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i>
+                            日本語特有の複雑な法人格も正確に認識</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-primary"></i>
+                            機内モードなどのオフライン環境でも撮影可能</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12 mb-24">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop"
+                        alt="カレンダー連動お礼メール" class="rounded-2xl shadow-xl w-full object-cover aspect-video">
+                </div>
+                <div class="md:w-1/2">
+                    <div
+                        class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="ph-fill ph-envelope-open"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4">カレンダー連動オートメール</h3>
+                    <h4 class="text-lg font-bold text-gray-700 mb-4">挨拶文、日程調整、チームCC追加まで全自動</h4>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        相手の役職や関係性に合わせたビジネス敬語をAIが自動生成。さらにGoogleカレンダーやOutlookカレンダーと連携し、直近2週間の「空き日程」を候補としてメール本文に挿入。ワンタップでメーラーが起動し即座に送信が完了します。
+                    </p>
+                    <ul class="space-y-2 font-medium text-sm text-gray-700">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-purple-600"></i>
+                            AIによる失礼のないビジネス文書作成</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-purple-600"></i>
+                            空き時間を3〜5件自動ピックアップ</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-purple-600"></i>
+                            メーラー起動時に同僚をワンタップでCCに追加</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
+                        alt="チーム共有とKintone連携" class="rounded-2xl shadow-xl w-full object-cover aspect-video">
+                </div>
+                <div class="md:w-1/2">
+                    <div
+                        class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="ph-fill ph-database"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4">主要CRM・連絡帳とシームレス連携</h3>
+                    <h4 class="text-lg font-bold text-gray-700 mb-4">Salesforce、Kintone、Google Contact等に直結</h4>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        取得した名刺データはクラウド上の「チームプール」に自動蓄積。そこから社内利用のSalesforceやKintoneなどのCRM、またはGoogle
+                        Contact(連絡帳)へAPIを用いたワンクリックでの即時エクスポートが可能です。
+                    </p>
+                    <ul class="space-y-2 font-medium text-sm text-gray-700">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-emerald-600"></i>
+                            チーム全体の顧客データベースを自動共有</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-emerald-600"></i>
+                            Salesforce / Kintone 等へのAPI直接出力</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-emerald-600"></i>
+                            銀行レベルの暗号化と防篡改監査ログの保存</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations -->
+    <section class="py-20 bg-gray-50 border-t border-gray-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+            <h2 class="text-3xl font-black mb-4">お使いのツールとシームレスに連携</h2>
+            <p class="text-gray-600 font-medium mb-12">世界中の主要なCRMやカレンダー、連絡帳アプリと標準で直結。データを分断しません。</p>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <!-- Salesforce -->
+                <div
+                    class="bg-white border border-gray-100 shadow-sm rounded-3xl p-8 flex flex-col items-center justify-center hover-lift group transition-all">
+                    <div
+                        class="w-16 h-16 bg-blue-50 rounded-2xl shadow-inner flex items-center justify-center mb-5 group-hover:-translate-y-2 transition-transform duration-300">
+                        <i class="ph-fill ph-cloud text-3xl text-blue-500"></i>
+                    </div>
+                    <span class="text-lg font-black text-gray-800 tracking-tight">Salesforce</span>
+                    <span
+                        class="text-xs font-bold text-blue-500 mt-2 bg-blue-50 border border-blue-100 px-3 py-1 rounded-full">CRM連携</span>
+                </div>
+
+                <!-- Outlook -->
+                <div
+                    class="bg-white border border-gray-100 shadow-sm rounded-3xl p-8 flex flex-col items-center justify-center hover-lift group transition-all">
+                    <div
+                        class="w-16 h-16 bg-blue-50 rounded-2xl shadow-inner flex items-center justify-center mb-5 group-hover:-translate-y-2 transition-transform duration-300">
+                        <i class="ph-fill ph-envelope-simple text-3xl text-blue-700"></i>
+                    </div>
+                    <span class="text-lg font-black text-gray-800 tracking-tight">Outlook</span>
+                    <span
+                        class="text-xs font-bold text-blue-600 mt-2 bg-blue-50 border border-blue-100 px-3 py-1 rounded-full">カレンダー
+                        / メール</span>
+                </div>
+
+                <!-- Google Contacts -->
+                <div
+                    class="bg-white border border-gray-100 shadow-sm rounded-3xl p-8 flex flex-col items-center justify-center hover-lift group transition-all">
+                    <div
+                        class="w-16 h-16 bg-red-50 rounded-2xl shadow-inner flex items-center justify-center mb-5 group-hover:-translate-y-2 transition-transform duration-300">
+                        <i class="ph-fill ph-users text-3xl text-red-500"></i>
+                    </div>
+                    <span class="text-lg font-black text-gray-800 tracking-tight">Google Contact</span>
+                    <span
+                        class="text-xs font-bold text-red-500 mt-2 bg-red-50 border border-red-100 px-3 py-1 rounded-full">連絡帳同期</span>
+                </div>
+
+                <!-- Kintone -->
+                <div
+                    class="bg-white border border-gray-100 shadow-sm rounded-3xl p-8 flex flex-col items-center justify-center hover-lift group transition-all">
+                    <div
+                        class="w-16 h-16 bg-yellow-50 rounded-2xl shadow-inner flex items-center justify-center mb-5 group-hover:-translate-y-2 transition-transform duration-300">
+                        <i class="ph-fill ph-database text-3xl text-yellow-500"></i>
+                    </div>
+                    <span class="text-lg font-black text-gray-800 tracking-tight">Kintone</span>
+                    <span
+                        class="text-xs font-bold text-yellow-600 mt-2 bg-yellow-50 border border-yellow-100 px-3 py-1 rounded-full">業務アプリ連携</span>
+                </div>
+            </div>
+
+            <p class="text-sm font-bold text-gray-400 mt-10 tracking-wide">※ そのほか、Zapier経由での連携やCSVエクスポートにも対応</p>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-24 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black mb-4">シンプルで透明な料金プラン</h2>
+                <p class="text-gray-600 font-medium">個人利用は無料から。法人の本格導入に最適なプレミアムプランもご用意。</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Free Plan -->
+                <div class="bg-white p-10 rounded-3xl border border-gray-200 shadow-sm">
+                    <h3 class="text-2xl font-black text-gray-900 mb-2">無料プラン</h3>
+                    <p class="text-sm font-medium text-gray-500 mb-6">AI名刺アプリの恩恵を個人で体験する</p>
+                    <div class="text-4xl font-black mb-8 text-gray-900">¥0 <span
+                            class="text-base font-bold text-gray-500">/ 月</span></div>
+                    <ul class="space-y-4 mb-10 text-gray-700 font-medium text-sm">
+                        <li class="flex items-center gap-3"><i
+                                class="ph-fill ph-check-circle text-gray-300 text-xl"></i> 名刺スキャン 月間30枚まで</li>
+                        <li class="flex items-center gap-3"><i
+                                class="ph-fill ph-check-circle text-gray-300 text-xl"></i> AIオートメール作成機能</li>
+                        <li class="flex items-center gap-3"><i
+                                class="ph-fill ph-check-circle text-gray-300 text-xl"></i> クラウド保存とWebアクセス</li>
+                    </ul>
+                    <a href="#download"
+                        class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3.5 rounded-xl transition-colors">今すぐ無料で始める</a>
+                </div>
+
+                <!-- Premium Plan -->
+                <div
+                    class="bg-white p-10 rounded-3xl border-2 border-primary shadow-xl relative transform md:-translate-y-4">
+                    <div
+                        class="absolute top-0 right-8 transform -translate-y-1/2 bg-gradient-to-r from-primary to-blue-400 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
+                        法人・チーム向け
+                    </div>
+                    <h3 class="text-2xl font-black text-gray-900 mb-2">プレミアムプラン</h3>
+                    <p class="text-sm font-medium text-gray-500 mb-6">営業組織の生産性を最大化する</p>
+                    <div class="text-4xl font-black text-primary">¥6,000 <span
+                            class="text-base font-bold text-gray-500">/ 年</span></div>
+                    <div class="text-sm font-bold text-gray-400 mb-8 mt-1">または 月額 ¥500</div>
+                    <ul class="space-y-4 mb-6 text-gray-700 font-medium text-sm">
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                            名刺スキャン枚数 <b>完全無制限</b></li>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                            チーム共有プールへの自動保存</li>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                            Kintone連携・Excelエクスポート</li>
+                        <li class="flex items-center gap-3"><i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                            優先サポートと監査ログ機能</li>
+                    </ul>
+                    <div class="text-right text-xs text-gray-500 font-bold mb-4">※ 年間一括払い: ¥6,000/年</div>
+                    <a href="contact.html"
+                        class="block w-full text-center bg-primary hover:bg-blue-800 text-white font-bold py-3.5 rounded-xl transition-colors shadow-lg">法人プラン・導入の相談</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-gradient-to-br from-primary to-blue-900 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-black mb-6">次の商談は、ここから始まる。</h2>
+            <p class="text-blue-100 text-lg mb-10 font-medium">
+                現在、すべての機能を無料でお試しいただけます。<br>アプリをダウンロードして、10秒で完了する次世代の営業フローを体験してください。</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button
+                    class="w-full sm:w-auto bg-white text-primary font-bold py-4 px-10 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-3 shadow-xl">
+                    <i class="ph-fill ph-apple-logo text-2xl"></i>
+                    App Store
+                </button>
+                <button
+                    class="w-full sm:w-auto bg-white text-primary font-bold py-4 px-10 rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-3 shadow-xl">
+                    <i class="ph-fill ph-google-play-logo text-2xl"></i>
+                    Google Play
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-gray-800 pb-12 mb-8">
+            <div class="col-span-1 md:col-span-2">
+                <a href="index.html" class="flex items-center gap-2 mb-4">
+                    <i class="ph-fill ph-infinity text-blue-400 text-3xl"></i>
+                    <span class="text-2xl font-black tracking-tight text-white">LinkInstant<span
+                            class="text-blue-400">.</span></span>
+                </a>
+                <p class="text-sm text-gray-400 mb-6 leading-relaxed max-w-sm">
+                    LinkInstantは、最新のAI搭載OCRとクラウドを活用した、次世代のAI名刺管理・営業支援アプリです。企業の顧客管理(CRM)をシームレスに連携させます。
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors bg-gray-800 p-2 rounded-full"><i
+                            class="ph-fill ph-twitter-logo text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors bg-gray-800 p-2 rounded-full"><i
+                            class="ph-fill ph-facebook-logo text-xl"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">プロダクト</h4>
+                <ul class="space-y-3 text-sm font-medium">
+                    <li><a href="#features" class="hover:text-blue-400 transition-colors">AI名刺管理の機能</a></li>
+                    <li><a href="#pricing" class="hover:text-blue-400 transition-colors">料金プラン</a></li>
+                    <li><a href="faq.html" class="hover:text-blue-400 transition-colors">よくある質問 (FAQ)</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">企業・サポート</h4>
+                <ul class="space-y-3 text-sm font-medium">
+                    <li><a href="blog.html" class="hover:text-blue-400 transition-colors">ブログ</a></li>
+                    <li><a href="news.html" class="hover:text-blue-400 transition-colors">お知らせ (News)</a></li>
+                    <li><a href="company.html" class="hover:text-blue-400 transition-colors">会社概要</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-400 transition-colors">お問い合わせ・法人導入</a></li>
+                    <li><a href="terms.html" class="hover:text-blue-400 transition-colors">利用規約</a></li>
+                    <li><a href="privacy.html" class="hover:text-blue-400 transition-colors">プライバシーポリシー</a></li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center text-xs font-medium text-gray-500">
+            <p>© 2026 LinkInstant. All rights reserved.</p>
+            <p class="mt-2 md:mt-0">Made for Japanese Business Professionals.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

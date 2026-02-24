@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>よくある質問 (FAQ) | AI名刺管理 LinkInstant</title>
+    <meta name="description"
+        content="AI名刺アプリ「LinkInstant」に関するよくある質問。セキュリティ、Kintone等の連携、オフラインでの名刺スキャン、無料・有料プランの違いについてお答えします。">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F52BA',    /* Sapphire Blue for corporate trust */
+                        secondary: '#F8FAFC',  /* Light gray background */
+                        textMain: '#1F2937',   /* Dark gray text */
+                        textLight: '#6B7280',  /* Light gray text */
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #1F2937;
+            background-color: #F8FAFC;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #0F52BA 0%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        details>summary {
+            list-style: none;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 w-full bg-white shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                
+                <img src="logo.png" alt="LinkInstant" class="h-8 w-auto"> <span class="text-xl font-black tracking-tight text-gray-900">LinkInstant</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-700">
+                <a href="index.html" class="hover:text-primary transition-colors text-primary font-bold">ホーム</a>
+                <a href="index.html#features" class="hover:text-primary transition-colors">機能・特徴</a>
+                <a href="index.html#pricing" class="hover:text-primary transition-colors">料金</a>
+                <a href="blog.html" class="hover:text-primary transition-colors">ブログ</a>
+                <a href="news.html" class="hover:text-primary transition-colors">お知らせ</a>
+                <a href="faq.html" class="hover:text-primary transition-colors">よくある質問</a>
+                <a href="company.html" class="hover:text-primary transition-colors">会社概要</a>
+            </nav>
+            <div class="hidden md:flex gap-4">
+                <a href="contact.html"
+                    class="text-gray-700 border border-gray-300 hover:bg-gray-50 px-5 py-2.5 rounded-full text-sm font-bold transition-colors">
+                    お問い合わせ
+                </a>
+                <a href="index.html#download"
+                    class="bg-primary text-white hover:bg-blue-800 px-5 py-2.5 rounded-full text-sm font-bold shadow-md transition-all">
+                    無料で試す
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="flex-grow pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+        <h1 class="text-4xl font-black mb-4 text-center">よくある質問 <span class="text-primary">(FAQ)</span></h1>
+        <p class="text-center text-gray-600 mb-12 font-medium">LinkInstantに関するFAQや、AI名刺管理の活用方法についてお答えします。</p>
+
+        <div class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <details class="bg-white border border-gray-200 rounded-2xl group transition-all duration-300 shadow-sm">
+                <summary
+                    class="flex justify-between items-center font-bold cursor-pointer list-none p-6 outline-none hover:bg-gray-50 rounded-2xl">
+                    <span class="text-lg text-gray-900">Kintone以外のCRM（SalesforceやHubSpot）とも連携できますか？</span>
+                    <span class="transition group-open:rotate-180 bg-blue-50 text-primary rounded-full p-2">
+                        <i class="ph-bold ph-caret-down"></i>
+                    </span>
+                </summary>
+                <div class="text-gray-600 p-6 pt-0 leading-relaxed text-sm font-medium border-t border-gray-100 mt-2">
+                    現在は「Excel / CSV エクスポート」および「Kintone API 直連携」に標準対応しております。
+                    エンタープライズ版のお客様向けには、個別開発でSalesforceやPipedrive等とのAPI連携設定も承っておりますので、お問い合わせください。
+                </div>
+            </details>
+
+            <!-- FAQ Item 2 -->
+            <details class="bg-white border border-gray-200 rounded-2xl group transition-all duration-300 shadow-sm">
+                <summary
+                    class="flex justify-between items-center font-bold cursor-pointer list-none p-6 outline-none hover:bg-gray-50 rounded-2xl">
+                    <span class="text-lg text-gray-900">無料プランの制限について教えてください。</span>
+                    <span class="transition group-open:rotate-180 bg-blue-50 text-primary rounded-full p-2">
+                        <i class="ph-bold ph-caret-down"></i>
+                    </span>
+                </summary>
+                <p class="text-sm text-gray-700 leading-relaxed font-medium p-6 pt-0 border-t border-gray-100 mt-2">
+                    個人向けの無料プランでは、AI名刺データ化が月間30枚までに制限されています。また、CSV/Excelへの「データエクスポート」のほか、複数人での「チーム共有」や「Kintone自動出力」などの連携機能は、すべてプレミアムプラン（年額6,000円
+                    または 月額500円）以上でのご提供となります。
+                </p>
+            </details>
+
+            <!-- FAQ Item 3 -->
+            <details class="bg-white border border-gray-200 rounded-2xl group transition-all duration-300 shadow-sm">
+                <summary
+                    class="flex justify-between items-center font-bold cursor-pointer list-none p-6 outline-none hover:bg-gray-50 rounded-2xl">
+                    <span class="text-lg text-gray-900">電波のない展示会会場でも名刺スキャン（OCR）はできますか？</span>
+                    <span class="transition group-open:rotate-180 bg-blue-50 text-primary rounded-full p-2">
+                        <i class="ph-bold ph-caret-down"></i>
+                    </span>
+                </summary>
+                <div class="text-gray-600 p-6 pt-0 leading-relaxed text-sm font-medium border-t border-gray-100 mt-2">
+                    はい、可能です。LinkInstantのハイブリッドOCR機能なら、電波がない場所でも「ローカルスキャンキュー」に名刺画像を次々と保存できます。電波が回復したタイミングで、AIがバックグラウンドで全件一括データ化を行います。
+                </div>
+            </details>
+
+            <!-- FAQ Item 4 -->
+            <details class="bg-white border border-gray-200 rounded-2xl group transition-all duration-300 shadow-sm">
+                <summary
+                    class="flex justify-between items-center font-bold cursor-pointer list-none p-6 outline-none hover:bg-gray-50 rounded-2xl">
+                    <span class="text-lg text-gray-900">企業で導入する際、セキュリティは大丈夫ですか？</span>
+                    <span class="transition group-open:rotate-180 bg-blue-50 text-primary rounded-full p-2">
+                        <i class="ph-bold ph-caret-down"></i>
+                    </span>
+                </summary>
+                <div class="text-gray-600 p-6 pt-0 leading-relaxed text-sm font-medium border-t border-gray-100 mt-2">
+                    データは全てSSL/TLSで暗号化され、世界最高水準の堅牢性を誇るGoogle
+                    Cloud上のデータベースに保存されます。また、管理者アカウントからは、いつ誰がどのデータを出力したかをトラッキングできる「監査ログ機能」も備えており、金融機関レベルのセキュリティ要件にも対応しています。
+                </div>
+            </details>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-gray-800 pb-12 mb-8">
+            <div class="col-span-1 md:col-span-2">
+                <a href="index.html" class="flex items-center gap-2 mb-4">
+                    <i class="ph-fill ph-infinity text-blue-400 text-3xl"></i>
+                    <span class="text-2xl font-black tracking-tight text-white">LinkInstant<span
+                            class="text-blue-400">.</span></span>
+                </a>
+                <p class="text-sm text-gray-400 mb-6 leading-relaxed max-w-sm">
+                    LinkInstantは、最新のAI搭載OCRとクラウドを活用した、次世代のAI名刺管理・営業支援アプリです。企業の顧客管理(CRM)をシームレスに連携させます。
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors bg-gray-800 p-2 rounded-full"><i
+                            class="ph-fill ph-twitter-logo text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors bg-gray-800 p-2 rounded-full"><i
+                            class="ph-fill ph-facebook-logo text-xl"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">プロダクト</h4>
+                <ul class="space-y-3 text-sm font-medium">
+                    <li><a href="index.html#features" class="hover:text-blue-400 transition-colors">AI名刺管理の機能</a></li>
+                    <li><a href="index.html#pricing" class="hover:text-blue-400 transition-colors">料金プラン</a></li>
+                    <li><a href="faq.html" class="hover:text-blue-400 transition-colors">よくある質問 (FAQ)</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">企業・サポート</h4>
+                <ul class="space-y-3 text-sm font-medium">
+                    <li><a href="blog.html" class="hover:text-blue-400 transition-colors">ブログ</a></li>
+                    <li><a href="news.html" class="hover:text-blue-400 transition-colors">お知らせ (News)</a></li>
+                    <li><a href="company.html" class="hover:text-blue-400 transition-colors">会社概要</a></li>
+                    <li><a href="contact.html" class="hover:text-blue-400 transition-colors">お問い合わせ・法人導入</a></li>
+                    <li><a href="terms.html" class="hover:text-blue-400 transition-colors">利用規約</a></li>
+                    <li><a href="privacy.html" class="hover:text-blue-400 transition-colors">プライバシーポリシー</a></li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center text-xs font-medium text-gray-500">
+            <p>© 2026 LinkInstant. All rights reserved.</p>
+            <p class="mt-2 md:mt-0">Made for Japanese Business Professionals.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

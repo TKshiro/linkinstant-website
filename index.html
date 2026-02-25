@@ -35,7 +35,7 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         body {
-            font-family: 'Noto Sans JP', sans-serif;
+            font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
             color: #1F2937;
             background-color: #FFFFFF;
         }
@@ -56,6 +56,7 @@
         .gradient-text {
             background: linear-gradient(90deg, #0F52BA 0%, #3B82F6 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
     </style>
@@ -67,8 +68,9 @@
     <header class="fixed top-0 w-full bg-white shadow-sm z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-2">
-                
-                <img src="logo.png" alt="LinkInstant" class="h-8 w-auto"> <span class="text-xl font-black tracking-tight text-gray-900">LinkInstant</span>
+
+                <img src="logo.png" alt="LinkInstant" class="h-8 w-auto"> <span
+                    class="text-xl font-black tracking-tight text-gray-900">LinkInstant</span>
             </a>
             <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-700">
                 <a href="index.html" class="hover:text-primary transition-colors text-primary font-bold">ホーム</a>
@@ -106,7 +108,7 @@
                 法人向け AI名刺管理 アプリ登場
             </div>
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
-                名刺交換から<span class="gradient-text">10秒</span>で<br>次の商談をロックする。
+                名刺交換から<span class="gradient-text">10秒</span>で<br>次の商談へ繋げる。
             </h1>
             <p class="text-lg text-gray-600 mb-8 leading-relaxed font-medium">
                 最新のAIとOCR技術を搭載した次世代のAI名刺アプリ。<br class="hidden md:block">
@@ -285,7 +287,7 @@
                         <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-emerald-600"></i>
                             Salesforce / Kintone 等へのAPI直接出力</li>
                         <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-emerald-600"></i>
-                            銀行レベルの暗号化と防篡改監査ログの保存</li>
+                            銀行レベルの暗号化と改ざん防止監査ログの保存</li>
                     </ul>
                 </div>
             </div>
